@@ -1,0 +1,12 @@
+
+
+
+http://localhost:3600/
+
+http://localhost:3600/home
+
+http://localhost:3600/perfil
+
+http://localhost:3600/perfil/1
+
+

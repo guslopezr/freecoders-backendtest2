@@ -1,0 +1,45 @@
+const { Pool } = require('pg');
+
+const dbUser = 'blacksam';
+const dbHost = 'postgresql-blacksam.alwaysdata.net';
+const dbDatabase = 'blacksam_freecoders';
+const dbPassword = 'blacksam1234..';
+const dbPort = '5432';
+
+describe('database connection', () => {
+    test('can connect to the database', async() => {
+        const pool = new Pool({
+            user: dbUser,
+            host: dbHost,
+            database: dbDatabase,
+            password: dbPassword,
+            port: dbPort,
+        });
+
+        let client;
+        try {
+            client = await pool.connect();
+            expect(client).toBeTruthy();
+        } finally {
+            if (client) {
+                client.release();
+            }
+            await pool.end();
+        }
+    });
+
+    test('returns expected number of rows from SELECT * FROM programadores', async() => {
+        const pool = new Pool({
+            user: dbUser,
+            host: dbHost,
+            database: dbDatabase,
+            password: dbPassword,
+            port: dbPort,
+        });
+
+        const result = await pool.query('SELECT * FROM programadores');
+        expect(result.rowCount).toBe(4);
+
+        await pool.end();
+    });
+});
