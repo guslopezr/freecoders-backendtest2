@@ -1,12 +1,18 @@
 
-
-
+localhost:3600/
 http://localhost:3600/
+https://localhost:3600/
 
+
+localhost:3600/home
 http://localhost:3600/home
+https://localhost:3600/home
 
-http://localhost:3600/perfil
-
+localhost:3600/perfil/1
+localhost:3600/perfil/2
+localhost:3600/perfil/3
+localhost:3600/perfil/4
 http://localhost:3600/perfil/1
+https://localhost:3600/perfil/1
 
 
